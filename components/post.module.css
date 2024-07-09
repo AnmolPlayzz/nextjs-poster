@@ -5,10 +5,8 @@
     padding: 20px 15px;
     transition: 0.2s all ease;
     position: relative;
-    p {
-        white-space: break-spaces;
-        word-wrap: break-word;
-    }
+    white-space: break-spaces;
+    word-wrap: break-word;
     .author {
         font-weight: 300;
         margin-bottom: 6px;

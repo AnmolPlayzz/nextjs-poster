@@ -16,7 +16,7 @@
         background: #2a2a2a;
         font-size: 16px;
         transition: all 0.1s ease-in-out;
-        svg {
+        .svg {
             margin-right: 5px;
             margin-bottom: 1px;
             width: 20px;
@@ -32,15 +32,13 @@
         background: #414040;
     }
 
-    div {
+    .div {
         background: rgba(75, 75, 75, 0.3);
         padding: 20px;
         border-radius: 10px;
         max-width: 90%;
-        p {
-            white-space: break-spaces;
-            word-wrap: break-word;
-        }
+        white-space: break-spaces;
+        word-wrap: break-word;
         .author {
             background: linear-gradient(45deg, #3aff7e, #3cf9ff);
             width: fit-content;

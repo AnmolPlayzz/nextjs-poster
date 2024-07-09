@@ -7,10 +7,10 @@ export default async function Page({params}: {params: {id: string}}) {
     const postData =  await getPost(id);
     return <main className={styles.main}>
         <Link href="/" className={styles.backlink}>
-            <MdArrowBack />
+            <MdArrowBack className={styles.svg} />
             Back
         </Link>
-        <div>
+        <div className={styles.div}>
             <p className={styles.author}>{postData.author}</p>
             <p>{postData.body}</p>
         </div>
