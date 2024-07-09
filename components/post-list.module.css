@@ -1,0 +1,19 @@
+.postList {
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 1140px) {
+    .postList {
+        grid-template-columns: repeat(2, 40%);
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    .postList {
+        grid-template-columns: repeat(1, 95%);
+    }
+}
+

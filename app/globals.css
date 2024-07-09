@@ -16,12 +16,13 @@ a {
 }
 
 .bg-image {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   overflow: hidden;
   width: 60vw;
   height: 60vh;
+  z-index: -1;
 }
 
 .cls-1 {
@@ -49,6 +50,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 20;
   .main {
     width: 80%;
     position: relative;
@@ -61,13 +63,26 @@ nav {
         height: 25px;
         color: #d7d7d7;
         margin: 10px;
+        transition: 0.1s all ease;
       }
       h1{
         font-size: 1.2em;
-        color: white;
+        color: #d7d7d7;
         font-weight: 900;
+        transition: 0.1s all ease;
       }
     }
+    .header:hover {
+      .icon, h1 {
+        color: #bbbbbb;
+      }
+    }
+    .header:active {
+      .icon, h1 {
+        color: #797979;
+      }
+    }
+
     .navlinks {
       width: fit-content;
       float: right;
@@ -98,5 +113,11 @@ nav {
         text-decoration: underline;
       }
     }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .bg-image {
+    width: 100vw;
   }
 }
