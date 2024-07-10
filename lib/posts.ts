@@ -13,6 +13,7 @@ export async function fetchPosts():Promise<{
 
 export async function getPost(id: number):Promise<QueryResultRow> {
     const post = await sql`SELECT * FROM postsdb1 WHERE id=${id};`;
+    console.log(post)
     return post.rows[0]
 }
 
