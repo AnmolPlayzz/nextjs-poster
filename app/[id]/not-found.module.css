@@ -1,0 +1,23 @@
+.main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .div {
+        width: 80vw;
+        .h1 {
+            font-size: 5rem;
+            background: -webkit-linear-gradient(-45deg,#67ffb3, #297fb4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            width: fit-content;
+        }
+        .p {
+            color: #bbbbbb;
+        }
+    }
+
+}

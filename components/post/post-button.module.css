@@ -1,0 +1,27 @@
+.button {
+    position: relative;
+    background: rgba(155, 155, 155, 0.24);
+    border: 0;
+    padding: 8px 20px 8px 14px;
+    margin-top: 10px;
+    font-size: 16px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.1s ease-in-out;
+    outline: 0 solid rgba(197, 197, 197, 0.32);
+    .svgAdd {
+        margin-right: 6px;
+    }
+}
+.button:hover {
+    background: #727272;
+    outline: 3px solid rgba(197, 197, 197, 0.32);
+}
+
+.button:active {
+    background: rgba(79, 79, 79, 0.44);
+}

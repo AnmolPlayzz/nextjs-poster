@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import { MdMessage } from "react-icons/md";
 import Link from "next/link";
+import Providers from "@/components/post/ProgressBarProvider";
 
 const roboto = Roboto({
   weight: ['100','300','400','500','700','900'],
@@ -55,7 +56,9 @@ export default function RootLayout({
           </div>
         </div>
       </nav>
-      {children}
+      <Providers>
+        {children}
+      </Providers>
       </body>
     </html>
   );

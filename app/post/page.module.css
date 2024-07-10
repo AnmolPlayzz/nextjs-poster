@@ -1,0 +1,85 @@
+.main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .backlink {
+        color: #d7d7d7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 28px;
+        padding: 7px 19px 7px 14px;
+        border-radius: 20vmax;
+        background: #2a2a2a;
+        font-size: 16px;
+        transition: all 0.1s ease-in-out;
+        .svg {
+            margin-right: 5px;
+            margin-bottom: 1px;
+            width: 20px;
+            height: 20px;
+        }
+    }
+    .backlink:hover {
+        background: #727272;
+        transform: scale(1.05) translateY(-5px);
+        box-shadow: 0 5px 10px #2d2d2d;
+    }
+    .backlink:active {
+        background: #414040;
+    }
+
+    .form {
+        background: rgba(75, 75, 75, 0.3);
+        padding: 20px;
+        border-radius: 10px;
+        width: 400px;
+        max-width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            .field {
+                display: flex;
+                flex-direction: column;
+                .label {
+                    font-size: 14px;
+                    padding: 5px;
+                    color: #cbcbcb;
+                }
+                .input {
+                    background: rgba(155, 155, 155, 0.24);
+                    border: 0;
+                    border-radius: 9px;
+                    outline: none;
+                    padding: 10px 12px;
+                    color: #fff;
+                    resize: none;
+                }
+            }
+        }
+        .warning {
+            padding: 12px 10px;
+            width: 100%;
+            display: flex;
+            margin-top: 10px;
+            border-radius: 10px;
+            align-items: center;
+            color: #b0b0b0;
+            background: rgba(255, 132, 132, 0.18);
+            .svgWarning {
+                color: #ef7c7c;
+                width: 20px;
+                height: 20px;
+                margin-right: 5px;
+            }
+        }
+    }
+}

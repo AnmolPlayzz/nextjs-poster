@@ -1,6 +1,5 @@
 import styles from "./post-list.module.css"
 import {fetchPosts} from "@/lib/posts";
-import {QueryResultRow} from "pg";
 import Post from "@/components/post";
 export default async function PostList() {
     const posts : any = await fetchPosts();
