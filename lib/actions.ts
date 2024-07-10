@@ -43,5 +43,6 @@ export async function postContent(prevState: {
     await post(data)
 
     revalidatePath("/")
+    revalidatePath("/[id]","page")
     redirect("/")
 }
