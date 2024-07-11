@@ -80,6 +80,9 @@
                 height: 20px;
                 margin-right: 5px;
             }
+            .span {
+                width: calc(100% - 40px)
+            }
         }
     }
 }

@@ -2,10 +2,19 @@
 import {post} from "@/lib/posts";
 import {revalidatePath} from "next/cache";
 import {redirect} from "next/navigation";
+import {headers} from "next/headers";
+import { redis } from "@/lib/redis";
+import {Ratelimit} from "@upstash/ratelimit";
+
+const rateLimit = new Ratelimit({
+    redis,
+    limiter: Ratelimit.slidingWindow(1,"1m")
+})
 
 export async function postContent(prevState: {
     message: string | null
 }, formData:any):Promise<any> {
+    const ip: any = headers().get("x-forwarded-for");
     const author: string | null | undefined = formData.get("name")
     const body: string | null | undefined = formData.get("body")
 
@@ -35,10 +44,20 @@ export async function postContent(prevState: {
             }
         }
     }
+
+    const { success}: {success: boolean} = await rateLimit.limit(ip)
+    if (!success) {
+        return {
+            message: `You can only post one message per minute, please wait. Spamming the post button will result in more wait times.`,
+        }
+    }
+
     const data : { author: string | null | undefined; body: string | null | undefined } = {
         author,
         body
     }
+
+
 
     await post(data)
 

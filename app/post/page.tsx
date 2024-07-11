@@ -32,8 +32,8 @@ export default function Page() {
                 </p>
             </div>
             {currentResponse.message ? <p className={styles.warning}>
-                <MdInfo className={styles.svgWarning} />
-                {currentResponse.message}
+                <MdInfo className={styles.svgWarning} size="20px" />
+                <span className={styles.span}>{currentResponse.message}</span>
             </p>:null}
             <PostButton />
         </form>
