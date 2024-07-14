@@ -50,10 +50,14 @@ export default function RootLayout({
       </svg>
       <nav >
         <div className="main">
-          <TransitionLink href="/" className="header">
-            <MdMessage className="icon"/>
-            <h1>Next.JS Poster</h1>
-          </TransitionLink>
+          <TransitionContext.Provider value={{
+            setVal: setClasses
+          }}>
+            <TransitionLink href="/" className="header">
+              <MdMessage className="icon"/>
+              <h1>Next.JS Poster</h1>
+            </TransitionLink>
+          </TransitionContext.Provider>
           <div className="navlinks">
             <a href="https://github.com/AnmolPlayzz/nextjs-poster" target="_blank">GitHub</a>
           </div>
@@ -67,7 +71,6 @@ export default function RootLayout({
             {children}
           </div>
         </TransitionContext.Provider>
-
       </Providers>
       <Analytics />
       <SpeedInsights />
