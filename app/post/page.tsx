@@ -1,18 +1,18 @@
 "use client";
 import styles from "./page.module.css"
-import Link from "next/link";
 import { useFormState } from "react-dom";
 import {MdArrowBack, MdInfo} from "react-icons/md";
 import {postContent} from "@/lib/actions";
 import PostButton from "@/components/post/post-button";
+import TransitionLink from "@/components/utils/transition-link";
 
 export default function Page() {
     const [currentResponse, formAction] = useFormState(postContent, {message: null})
     return <main className={styles.main}>
-        <Link href="/" className={styles.backlink}>
+        <TransitionLink href="/" className={styles.backlink}>
             <MdArrowBack className={styles.svg}/>
             Back
-        </Link>
+        </TransitionLink>
         <form className={styles.form} action={formAction}>
             <div className={styles.column}>
                 <p className={styles.field}>

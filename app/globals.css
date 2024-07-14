@@ -12,6 +12,15 @@ body {
   padding: 0;
   background: #000;
 }
+#root {
+  overflow: clip;
+  opacity: 1;
+  transition: all .4s ease;
+}
+
+.page-transition {
+  opacity: 0 !important;
+}
 
 a {
   text-decoration: none;

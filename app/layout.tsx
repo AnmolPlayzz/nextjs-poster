@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
+"use client"
+import { TransitionContext } from "@/lib/context/transition-context";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { MdMessage } from "react-icons/md";
-import Link from "next/link";
 import Providers from "@/components/post/ProgressBarProvider";
+import TransitionLink from "@/components/utils/transition-link";
+import { RefObject, useRef, useState } from "react";
 
 const roboto = Roboto({
   weight: ['100','300','400','500','700','900'],
@@ -14,16 +16,15 @@ const roboto = Roboto({
   display: 'swap',
 })
 
-export const metadata: Metadata = {
-  title: "NextJS Poster",
-  description: "Post stuff anonymously.",
-};
+
+
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [classes,setClasses] = useState("")
   return (
     <html lang="en">
       <body className={roboto.className}>
@@ -49,17 +50,24 @@ export default function RootLayout({
       </svg>
       <nav >
         <div className="main">
-          <Link href="/" className="header">
+          <TransitionLink href="/" className="header">
             <MdMessage className="icon"/>
             <h1>Next.JS Poster</h1>
-          </Link>
+          </TransitionLink>
           <div className="navlinks">
             <a href="https://github.com/AnmolPlayzz/nextjs-poster" target="_blank">GitHub</a>
           </div>
         </div>
       </nav>
       <Providers>
-        {children}
+        <TransitionContext.Provider value={{
+          setVal: setClasses
+        }}>
+          <div id="root" className={classes}>
+            {children}
+          </div>
+        </TransitionContext.Provider>
+
       </Providers>
       <Analytics />
       <SpeedInsights />

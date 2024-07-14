@@ -1,5 +1,8 @@
+import type { Metadata } from "next";
 import styles from "./not-found.module.css"
-
+export const metadata: Metadata = {
+    title: "Not Found",
+};
 export default function NotFound() {
     return <main className={styles.main}>
         <div className={styles.div}>

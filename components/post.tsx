@@ -1,5 +1,6 @@
 import styles from "./post.module.css"
 import Link from "next/link";
+import TransitionLink from "./utils/transition-link";
 
 interface postData {
     id: number,
@@ -9,8 +10,8 @@ interface postData {
 }
 
 export default function Post(props: postData): React.ReactNode {
-    return <Link href={`/${props.id}`} className={styles.post}>
+    return <TransitionLink href={`/${props.id}`} className={styles.post}>
         <p className={styles.author}>{props.author}</p>
         <p className={styles.body}>{props.body}</p>
-    </Link>
+    </TransitionLink>
 }
