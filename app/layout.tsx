@@ -7,7 +7,9 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { MdMessage } from "react-icons/md";
 import Providers from "@/components/post/ProgressBarProvider";
 import TransitionLink from "@/components/utils/transition-link";
-import { RefObject, useRef, useState } from "react";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const roboto = Roboto({
   weight: ['100','300','400','500','700','900'],
@@ -15,15 +17,12 @@ const roboto = Roboto({
   subsets: ['latin'],
   display: 'swap',
 })
-
-
-
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const path = usePathname()
   const [classes,setClasses] = useState("")
   return (
     <html lang="en">
@@ -53,10 +52,13 @@ export default function RootLayout({
           <TransitionContext.Provider value={{
             setVal: setClasses
           }}>
-            <TransitionLink href="/" className="header">
+            {path === "/" ? <Link href="/" className="header">
               <MdMessage className="icon"/>
               <h1>Next.JS Poster</h1>
-            </TransitionLink>
+            </Link> : <TransitionLink href="/" className="header">
+              <MdMessage className="icon"/>
+              <h1>Next.JS Poster</h1>
+            </TransitionLink>}
           </TransitionContext.Provider>
           <div className="navlinks">
             <a href="https://github.com/AnmolPlayzz/nextjs-poster" target="_blank">GitHub</a>
